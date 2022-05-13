@@ -56,7 +56,7 @@ public class Calculadora {
 		this.valorMonedaConvertida = valorConvertido;
 	}
 
-	private double conversor() {
+	public double conversor() {
 
 		switch (this.nombreMoneda) {
 		case "Dolar":
@@ -115,8 +115,10 @@ public class Calculadora {
 
 	}*/
 
-	public void eliminarMoneda() {
-		this.valorMoneda = 0.0;
+	public double eliminarMoneda() {
+		this.valorMoneda = 0;
+		
+		return this.valorMoneda;
 	}
 
 }
