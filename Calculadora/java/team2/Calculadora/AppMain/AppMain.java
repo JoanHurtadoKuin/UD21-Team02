@@ -6,7 +6,16 @@ import java.awt.Frame;
 import team2.Calculadora.controlador.CalculadoraControlador;
 import team2.Calculadora.modelo.Calculadora;
 import team2.Calculadora.vista.CalculadoraDivisasApp;
-
+/**
+ * 
+ * java-full-stack-dev-u21 -  - AppMain
+ *
+ * @author Daniel Fernández Cacho
+ * @author Joan Hurtado García
+ * @author Jose Antonio González Alcántara
+ * 
+ * Fecha de creación 13/05/2022
+ */
 public class AppMain {
 
 	public static void main(String[] args) {
