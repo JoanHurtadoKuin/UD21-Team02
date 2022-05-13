@@ -14,7 +14,18 @@ public class Calculadora {
 		this.valor = 0.0;
 		this.valorConvertido = 0.0;
 	}
+	
+	
 		
+	public Calculadora(String moneda, String monedaConvertir, double valor, double valorConvertido) {
+		this.moneda = moneda;
+		this.monedaConvertir = monedaConvertir;
+		this.valor = valor;
+		this.valorConvertido = valorConvertido;
+	}
+
+
+
 	public String getMoneda() {
 		return moneda;
 	}
@@ -73,5 +84,6 @@ public class Calculadora {
 		return valorConvertido;
 	
 	}
+	 
 
 }
