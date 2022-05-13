@@ -1,5 +1,7 @@
 package team2.Calculadora;
 
+import java.util.Iterator;
+
 public class Calculadora {
 	
 	private String moneda;
@@ -24,8 +26,6 @@ public class Calculadora {
 		this.valorConvertido = valorConvertido;
 	}
 
-
-
 	public String getMoneda() {
 		return moneda;
 	}
@@ -40,6 +40,16 @@ public class Calculadora {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+	
+	public String[] valores() {
+		String nombreMonedas[] = {"Dolar","Euro","Libra"};
+		
+		for (int i = 0; i < nombreMonedas.length; i++) {
+			System.out.println(nombreMonedas[i]);
+		}
+		
+		return nombreMonedas;
 	}
 
 	public double conversor() {
