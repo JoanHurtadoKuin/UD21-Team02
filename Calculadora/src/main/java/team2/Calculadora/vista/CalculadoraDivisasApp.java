@@ -1,4 +1,4 @@
-package team2.Calculadora;
+package team2.Calculadora.vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -14,22 +14,12 @@ import javax.swing.JComboBox;
 public class CalculadoraDivisasApp extends JFrame {
 
 	private JPanel contentPane;
+	public JButton btnBorrar;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CalculadoraDivisasApp frame = new CalculadoraDivisasApp();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
@@ -42,7 +32,7 @@ public class CalculadoraDivisasApp extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("Borrar");
 		btnBorrar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnBorrar.setBounds(350, 10, 75, 75);
 		contentPane.add(btnBorrar);
