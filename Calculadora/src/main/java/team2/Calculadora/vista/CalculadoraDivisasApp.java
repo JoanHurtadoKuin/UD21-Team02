@@ -13,8 +13,8 @@ import javax.swing.JComboBox;
 
 public class CalculadoraDivisasApp extends JFrame {
 
-	private JPanel contentPane;
-	public JButton btnBorrar;
+	private JPanel contentPane;  //DANIII
+	public JButton btnBorrar;   //Coge los Jbuttons y inicializalos aqui arriba en public
 	
 	/**
 	 * Launch the application.

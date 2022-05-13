@@ -14,9 +14,10 @@ public class CalculadoraControlador implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(this.calculadoraVista.btnBorrar == e.getSource()) {
-			System.out.println("hola");
+		if(this.calculadoraVista.btnBorrar == e.getSource()) { //Ejemplo de boton de eliminar 1 digito
+			System.out.println("hola"); //Aun no esta el metodo
 		}
+		//Faltan botones de numeros y en la clase calculadoraModelo llamar a los metodos  -> calculadora.conversor();
 		
 	}
 	

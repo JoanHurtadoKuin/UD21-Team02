@@ -13,12 +13,12 @@ public class AppMain {
 		EventQueue.invokeLater(new Runnable() {
 			
 			public void run() {
-				try {
-					CalculadoraDivisasApp frame = new CalculadoraDivisasApp();
-					frame.setVisible(true);
+				try {					
 					
-					 Calculadora calculadoraModelo = new Calculadora();
-					 CalculadoraControlador cc = new CalculadoraControlador(calculadoraModelo,frame);
+					Calculadora calculadoraModelo = new Calculadora();
+					CalculadoraDivisasApp calculadoraVista = new CalculadoraDivisasApp();
+					calculadoraVista.setVisible(true);
+					CalculadoraControlador cc = new CalculadoraControlador(calculadoraModelo,calculadoraVista);
 					 
 				} catch (Exception e) {
 					e.printStackTrace();
