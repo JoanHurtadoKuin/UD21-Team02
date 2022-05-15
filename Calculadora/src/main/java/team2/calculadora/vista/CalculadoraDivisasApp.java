@@ -1,4 +1,4 @@
-package team2.Calculadora.vista;
+package team2.calculadora.vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

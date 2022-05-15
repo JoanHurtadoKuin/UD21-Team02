@@ -1,10 +1,10 @@
-package team2.Calculadora.controlador;
+package team2.calculadora.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import team2.Calculadora.modelo.Calculadora;
-import team2.Calculadora.vista.CalculadoraDivisasApp;
+import team2.calculadora.modelo.Calculadora;
+import team2.calculadora.vista.CalculadoraDivisasApp;
 
 public class CalculadoraControlador implements ActionListener {
 

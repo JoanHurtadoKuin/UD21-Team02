@@ -1,4 +1,4 @@
-package team2.Calculadora;
+package team2.calculadora;
 
 import static org.junit.Assert.assertTrue;
 

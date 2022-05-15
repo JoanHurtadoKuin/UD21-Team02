@@ -1,4 +1,4 @@
-package team2.Calculadora.modelo;
+package team2.calculadora.modelo;
 
 import java.text.DecimalFormat;
 import java.util.Iterator;

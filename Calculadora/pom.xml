@@ -5,12 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>team2</groupId>
-  <artifactId>Calculadora</artifactId>
+  <artifactId>calculadora</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>Calculadora</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <name>calculadora</name>
+  <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
