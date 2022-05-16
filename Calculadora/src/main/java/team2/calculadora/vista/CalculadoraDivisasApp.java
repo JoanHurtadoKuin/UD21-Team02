@@ -10,7 +10,16 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
-
+/**
+ * 
+ * java-full-stack-dev-u21 -  - CalculadoraDivisasApp
+ *
+ * @author Daniel Fernández Cacho
+ * @author Joan Hurtado García
+ * @author Jose Antonio González Alcántara
+ * 
+ * Fecha de creación 13/05/2022
+ */
 public class CalculadoraDivisasApp extends JFrame {
 
 	private JPanel contentPane; // DANIII

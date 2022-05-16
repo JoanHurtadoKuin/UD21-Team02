@@ -2,7 +2,16 @@ package team2.calculadora.modelo;
 
 import java.text.DecimalFormat;
 import java.util.Iterator;
-
+/**
+ * 
+ * java-full-stack-dev-u21 -  - Calculadora
+ *
+ * @author Daniel Fernández Cacho
+ * @author Joan Hurtado García
+ * @author Jose Antonio González Alcántara
+ * 
+ * Fecha de creación 13/05/2022
+ */
 public class Calculadora {
 
 	private String nombreMoneda;
@@ -62,32 +71,33 @@ public class Calculadora {
 		case "Dolar":
 
 			if (this.nombreMonedaConvertir.equals("Euros")) {
-				System.out.println((this.valorMoneda * 0.95) + " Euros");
-				return 0.0;
+				
+				return this.valorMoneda * 0.95;
 			} else if (this.nombreMonedaConvertir.equals("Libra")) {
-				System.out.println((this.valorMoneda * 13) + " Libras");
-				return 0.0;
+		
+				return this.valorMoneda * 0.82;
 			}
 
 			break;
 
 		case "Euros":
 			if (this.nombreMonedaConvertir.equals("Dolar")) {
-				System.out.println((this.valorMoneda * 1.05) + " Dolar");
-				return 0.0;
+				
+				return this.valorMoneda * 1.04;
 			} else if (this.nombreMonedaConvertir.equals("Libra")) {
-				System.out.println((this.valorMoneda * 13) + " Libras");
-				return 0.0;
+				
+				return this.valorMoneda * 0.85;
 			}
 			break;
 
 		case "Libra":
 			if (this.nombreMonedaConvertir.equals("Dolar")) {
-				System.out.println((this.valorMoneda * 0.95) + " Dolar");
-				return 0.0;
+				
+				return this.valorMoneda * 1.23;
+				
 			} else if (this.nombreMonedaConvertir.equals("Euros")) {
-				System.out.println((this.valorMoneda * 13) + " Euros");
-				return 0.0;
+				
+				return this.valorMoneda * 1.18;
 			}
 
 		default:
