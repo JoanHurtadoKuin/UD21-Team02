@@ -4,13 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
-<<<<<<< HEAD:Calculadora/src/main/java/team2/calculadora/controlador/CalculadoraControlador.java
+import javax.swing.JButton;
+
 import team2.calculadora.modelo.Calculadora;
 import team2.calculadora.vista.CalculadoraDivisasApp;
 
-=======
-import team2.Calculadora.modelo.Calculadora;
-import team2.Calculadora.vista.CalculadoraDivisasApp;
+
 /**
  * 
  * java-full-stack-dev-u21 -  - CalculadoraControlador
@@ -21,88 +20,108 @@ import team2.Calculadora.vista.CalculadoraDivisasApp;
  * 
  * Fecha de creación 13/05/2022
  */
->>>>>>> 1febfa06b643aff7781420ee6731e539648f82e5:Calculadora/java/team2/Calculadora/controlador/CalculadoraControlador.java
+
 public class CalculadoraControlador implements ActionListener {
 
 	private Calculadora calculadoraModelo;
 	private CalculadoraDivisasApp calculadoraVista;
-	private String valorMoneda;
 	DecimalFormat formatoDecimal;
+	private int decimales;
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.valorMoneda = this.calculadoraVista.lblMoneda1.getText();
-		System.out.println(this.valorMoneda);
-		if (!this.valorMoneda.isEmpty()) {
+		
+		Object componente = e.getSource();
+		
+		if (this.calculadoraVista.cmbMoneda1 == componente  || this.calculadoraVista.cmbMoneda2 == componente) { 
 			
-			this.calculadoraModelo.setValorMoneda(Double.valueOf(valorMoneda));
+			this.calculadoraModelo.seleccionarConversion(this.calculadoraVista.cmbMoneda1.getSelectedItem().toString() + this.calculadoraVista.cmbMoneda2.getSelectedItem().toString());
+			this.calculadoraVista.lblMoneda2.setText(this.calculadoraModelo.getCorvertidaString()); 
 			
 		}
 		
-		if (this.calculadoraVista.btnBorrar == e.getSource()) { 
-			System.out.println("hola"); // Aun no esta el metodo
-		} else if (this.calculadoraVista.btnCe == e.getSource()) {
+		if (this.calculadoraVista.btnBorrar == componente) { 
 			
-			System.out.println(this.calculadoraModelo.eliminarMoneda());
-			this.calculadoraModelo.setValorMoneda(this.calculadoraModelo.eliminarMoneda());
-			this.calculadoraVista.lblMoneda1.setText(this.calculadoraModelo.eliminarMoneda() + "");
+			String textMoneda1 = this.calculadoraVista.lblMoneda1.getText();
 			
-		} else if (this.calculadoraVista.btn9 == e.getSource()) {
+			if (textMoneda1.length() > 1) {
+				
+				this.calculadoraVista.lblMoneda1.setText(textMoneda1.substring(0, textMoneda1.length() - 1));
+				this.calculadoraModelo.setMonedaString(this.calculadoraVista.lblMoneda1.getText());
+				this.calculadoraModelo.seleccionarConversion(this.calculadoraVista.cmbMoneda1.getSelectedItem().toString() + this.calculadoraVista.cmbMoneda2.getSelectedItem().toString());
+				this.calculadoraVista.lblMoneda2.setText(this.calculadoraModelo.getCorvertidaString());
+				
+				if (decimales > 0) {
+					
+					decimales--;
+					
+				}
+				
+				
+			} else {
+				
+				this.calculadoraVista.lblMoneda1.setText("0");
+				this.calculadoraVista.lblMoneda2.setText("0");
+				this.calculadoraVista.btnComa.setEnabled(true);
+				
+			}
 			
-			this.valorMoneda += 9;
+	
+		} else if (this.calculadoraVista.btnCe == componente) {
 			
-		} else if (this.calculadoraVista.btn8 == e.getSource()) {
+			this.calculadoraVista.lblMoneda1.setText("0");
+			this.calculadoraVista.lblMoneda2.setText("0");
+			this.calculadoraVista.btnComa.setEnabled(true);
 			
-			this.valorMoneda += 8;
+		} else if (this.calculadoraVista.btn9 == componente) {
+			
+			clickBotones(this.calculadoraVista.btn9);
+			
+		} else if (this.calculadoraVista.btn8 == componente) {
+			
+			clickBotones(this.calculadoraVista.btn8);
 			
 			
-		} else if (this.calculadoraVista.btn7 == e.getSource()) {
+		} else if (this.calculadoraVista.btn7 == componente) {
 			
-			this.valorMoneda += 7;
+			clickBotones(this.calculadoraVista.btn7);
 			
-		} else if (this.calculadoraVista.btn6 == e.getSource()) {
+		} else if (this.calculadoraVista.btn6 == componente) {
 
-			this.valorMoneda += 6;
+			clickBotones(this.calculadoraVista.btn6);
 			
 			
-		} else if (this.calculadoraVista.btn5 == e.getSource()) {
+		} else if (this.calculadoraVista.btn5 == componente) {
 			
-			this.valorMoneda += 5;
+			clickBotones(this.calculadoraVista.btn5);
 			
-		} else if (this.calculadoraVista.btn4 == e.getSource()) {
+		} else if (this.calculadoraVista.btn4 == componente) {
 			
-			this.valorMoneda += 4;
+			clickBotones(this.calculadoraVista.btn4);
 			
-		} else if (this.calculadoraVista.btn3 == e.getSource()) {
+		} else if (this.calculadoraVista.btn3 == componente) {
 			
-			this.valorMoneda += 3;
+			clickBotones(this.calculadoraVista.btn3);
 			
-		} else if (this.calculadoraVista.btn2 == e.getSource()) {
+		} else if (this.calculadoraVista.btn2 == componente) {
 			
-			this.valorMoneda += 2;
+			clickBotones(this.calculadoraVista.btn2);
 			
-		} else if (this.calculadoraVista.btn1 == e.getSource()) {
+		} else if (this.calculadoraVista.btn1 == componente) {
 			
-			this.valorMoneda += 1;
+			clickBotones(this.calculadoraVista.btn1);
 			
-		} else if (this.calculadoraVista.btn0 == e.getSource()) {
+		} else if (this.calculadoraVista.btn0 == componente) {
 			
-			this.valorMoneda += 0;
+			clickBotones(this.calculadoraVista.btn0);
 			
-		} else if (this.calculadoraVista.btnComa == e.getSource()) {
-			
-			this.valorMoneda = formatoDecimal.format(this.valorMoneda);
-			
+		} else if (this.calculadoraVista.btnComa == componente) {
+				
+			this.calculadoraVista.btnComa.setEnabled(false);
+				
 		}
 		
-		if (!this.valorMoneda.isEmpty()) {
-			
-			this.calculadoraModelo.setValorMoneda(Double.parseDouble(this.valorMoneda));
-		}
-		
-		this.calculadoraVista.lblMoneda1.setText(this.valorMoneda);
-		this.calculadoraModelo.setNombreMoneda(this.valorMoneda);
-		this.calculadoraVista.lblMoneda2.setText(String.valueOf(this.calculadoraModelo.getValorMonedaConvertida()));
+
 		
 	}
 
@@ -110,8 +129,9 @@ public class CalculadoraControlador implements ActionListener {
 		
 		this.calculadoraModelo = calculadoraModelo;
 		this.calculadoraVista = calculadoraVista;
+		this.calculadoraModelo.setValorMoneda(0);
 		
-		String arrayMonedas[] = this.calculadoraModelo.valoresMonedas();
+		String arrayMonedas[] = this.calculadoraModelo.nombreMonedas();
 		
 
 		this.calculadoraVista.btnBorrar.addActionListener(this);
@@ -127,6 +147,9 @@ public class CalculadoraControlador implements ActionListener {
 		this.calculadoraVista.btn1.addActionListener(this);
 		this.calculadoraVista.btn0.addActionListener(this);
 		this.calculadoraVista.btnComa.addActionListener(this);
+		this.calculadoraVista.btnComa.addActionListener(this);
+		
+		//this.calculadoraVista.
 		this.formatoDecimal = new DecimalFormat("###.##");
 		//Rellenar ComboBox
 		for (int i = 0; i < arrayMonedas.length; i++) {		
@@ -134,22 +157,65 @@ public class CalculadoraControlador implements ActionListener {
 			this.calculadoraVista.cmbMoneda2.addItem(arrayMonedas[i]);		
 		}
 		
+		
+		this.calculadoraModelo.seleccionarConversion(this.calculadoraVista.cmbMoneda1.getSelectedItem().toString() + this.calculadoraVista.cmbMoneda2.getSelectedItem().toString());
+		this.calculadoraVista.cmbMoneda1.addActionListener(this);
+		this.calculadoraVista.cmbMoneda2.addActionListener(this);
+		this.calculadoraVista.lblMoneda1.setText("0");
+		this.calculadoraVista.lblMoneda2.setText("0");
+		this.decimales = 0;
+		
 	}
+	
+	private void clickBotones(JButton botonNumero) {
+		
+		
+		if (!this.calculadoraVista.btnComa.isEnabled()) {
+			String textoDecimal = "";
+			
+			this.calculadoraModelo.setMonedaString(this.calculadoraVista.lblMoneda1.getText());
+			this.calculadoraModelo.seleccionarConversion(this.calculadoraVista.cmbMoneda1.getSelectedItem().toString()
+					+ this.calculadoraVista.cmbMoneda2.getSelectedItem().toString());
+			
+			if (decimales == 0) {
+				
+				textoDecimal = ".00";
+				
+				
+			} else if (decimales == 1) {
+				
+				textoDecimal = this.calculadoraVista.lblMoneda1.getText() + "." + botonNumero.getText();
+				decimales++;
+				
+			} else if (decimales == 2){
+				
+				textoDecimal = this.calculadoraVista.lblMoneda1.getText() + botonNumero.getText();
+				decimales++;
+			}
+			
+			this.calculadoraVista.lblMoneda1.setText(this.calculadoraModelo.getMonedaString() + textoDecimal);
+			this.calculadoraVista.lblMoneda2.setText(this.calculadoraModelo.getCorvertidaString());
+			
+		} else {
+			
+			if (this.calculadoraVista.lblMoneda1.getText() == "0") {
 
-	public Calculadora getCalculadoraModelo() {
-		return calculadoraModelo;
+				this.calculadoraVista.lblMoneda1.setText(botonNumero.getText());
+				
+			} else {
+
+				this.calculadoraVista.lblMoneda1.setText(this.calculadoraVista.lblMoneda1.getText() + botonNumero.getText());
+				this.calculadoraModelo.setMonedaString(this.calculadoraVista.lblMoneda1.getText());
+				this.calculadoraModelo.seleccionarConversion(this.calculadoraVista.cmbMoneda1.getSelectedItem().toString()
+								+ this.calculadoraVista.cmbMoneda2.getSelectedItem().toString());
+				this.calculadoraVista.lblMoneda2.setText(this.calculadoraModelo.getCorvertidaString());
+
+			}
+			
+		}
+		
+		
+		
 	}
-
-	public void setCalculadoraModelo(Calculadora calculadoraModelo) {
-		this.calculadoraModelo = calculadoraModelo;
-	}
-
-	public CalculadoraDivisasApp getCalculadoraVista() {
-		return calculadoraVista;
-	}
-
-	public void setCalculadoraVista(CalculadoraDivisasApp calculadoraVista) {
-		this.calculadoraVista = calculadoraVista;
-	}
-
+	
 }

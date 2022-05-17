@@ -36,7 +36,6 @@ public class CalculadoraDivisasApp extends JFrame {
 	public JButton btn1;
 	public JButton btn0;
 	public JButton btnComa;
-	public JLabel lblNewLabel;
 	public JComboBox cmbMoneda1;
 	public JComboBox cmbMoneda2;
 	public JLabel lblMoneda1;
@@ -138,9 +137,5 @@ public class CalculadoraDivisasApp extends JFrame {
 		cmbMoneda2 = new JComboBox<String>();
 		cmbMoneda2.setBounds(10, 235, 167, 22);
 		contentPane.add(cmbMoneda2);
-
-		lblNewLabel = new JLabel("1 EURO = 1,0508 USD");
-		lblNewLabel.setBounds(10, 341, 167, 22);
-		contentPane.add(lblNewLabel);
 	}
 }

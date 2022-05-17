@@ -1,7 +1,8 @@
 package team2.calculadora.modelo;
 
 import java.text.DecimalFormat;
-import java.util.Iterator;
+import java.util.Hashtable;
+
 /**
  * 
  * java-full-stack-dev-u21 -  - Calculadora
@@ -14,121 +15,165 @@ import java.util.Iterator;
  */
 public class Calculadora {
 
-	private String nombreMoneda;
-	private String nombreMonedaConvertir;
 	private double valorMoneda;
 	private double valorMonedaConvertida;
-
+	private String conversion;
+	private String monedaString;
+	private String corvertidaString;
+	private DecimalFormat formatoDecimal = new DecimalFormat("###.##");
+	
+	
 	public Calculadora() {
-		this.nombreMoneda = "Dolar";
-		this.nombreMonedaConvertir = "Euros";
-		this.valorMoneda = 0.0;
-		this.valorMonedaConvertida = 0.0;
-
+		
 	}
-
-	public String getNombreMoneda() {
-		return nombreMoneda;
-	}
-
-	public void setNombreMoneda(String moneda) {
-		this.nombreMoneda = moneda;
-	}
-
+	/**
+	 * @return the valorMoneda
+	 */
 	public double getValorMoneda() {
 		return valorMoneda;
 	}
-
-	public void setValorMoneda(double valor) {
-		this.valorMoneda = valor;
+	/**
+	 * @param valorMoneda the valorMoneda to set
+	 */
+	public void setValorMoneda(double valorMoneda) {
+		this.valorMoneda = valorMoneda;
+	}
+	/**
+	 * @return the valorMonedaConvertida
+	 */
+	public double getValorMonedaConvertida() {
+		return valorMonedaConvertida;
+	}
+	/**
+	 * @param valorMonedaConvertida the valorMonedaConvertida to set
+	 */
+	public void setValorMonedaConvertida(double valorMonedaConvertida) {
+		this.valorMonedaConvertida = valorMonedaConvertida;
 	}
 
-	public String[] valoresMonedas() {
+	public void covertirDolarEuro() {
+		valorMonedaConvertida =  this.valorMoneda * 0.95;
+	}
+
+	public void covertirDolarLibra() {
+		valorMonedaConvertida =  this.valorMoneda * 0.82;
+	}
+	
+	public void covertirEuroLibra() {
+		valorMonedaConvertida =  this.valorMoneda * 0.85;
+	}
+	
+	public void covertirEuroDolar() {
+		valorMonedaConvertida =  this.valorMoneda * 1.04;
+	}
+
+	public void covertirLibraEuro() {
+		valorMonedaConvertida =  this.valorMoneda * 1.18;
+	}
+
+	public void covertirLibraDolar() {
+		valorMonedaConvertida = this.valorMoneda * 1.23;
+	}	
+	
+	public String[] nombreMonedas() {
 		String nombreMonedas[] = { "Dolar", "Euro", "Libra" };
 
 		return nombreMonedas;
 	}
-
-	public String getNombreMonedaConvertir() {
-		return nombreMonedaConvertir;
+	
+	/**
+	 * @return the conversion
+	 */
+	public String getConversion() {
+		return conversion;
 	}
-
-	public void setNombreMonedaConvertir(String nombreMonedaConvertir) {
-		this.nombreMonedaConvertir = nombreMonedaConvertir;
+	/**
+	 * @param conversion the conversion to set
+	 */
+	public void setConversion(String conversion) {
+		this.conversion = conversion;
 	}
-
-	public double getValorMonedaConvertida() {
-		return conversor();
-	}
-
-	public void setValorConvertido(double valorConvertido) {
-		this.valorMonedaConvertida = valorConvertido;
-	}
-
-	public double conversor() {
-
-		switch (this.nombreMoneda) {
-		case "Dolar":
-
-			if (this.nombreMonedaConvertir.equals("Euros")) {
-				
-				return this.valorMoneda * 0.95;
-			} else if (this.nombreMonedaConvertir.equals("Libra")) {
+	
+	public void seleccionarConversion(String conversion) {
 		
-				return this.valorMoneda * 0.82;
-			}
-
+		switch (conversion) {
+		case "DolarEuro":
+			covertirDolarEuro();
 			break;
-
-		case "Euros":
-			if (this.nombreMonedaConvertir.equals("Dolar")) {
-				
-				return this.valorMoneda * 1.04;
-			} else if (this.nombreMonedaConvertir.equals("Libra")) {
-				
-				return this.valorMoneda * 0.85;
-			}
+		case "DolarLibra":
+			covertirDolarLibra();
 			break;
-
-		case "Libra":
-			if (this.nombreMonedaConvertir.equals("Dolar")) {
-				
-				return this.valorMoneda * 1.23;
-				
-			} else if (this.nombreMonedaConvertir.equals("Euros")) {
-				
-				return this.valorMoneda * 1.18;
-			}
-
+		case "EuroDolar":
+			covertirEuroDolar();
+			break;
+		case "EuroLibra":
+			covertirEuroLibra();
+			break;
+		case "LibraDolar":
+			covertirLibraDolar();
+			break;
+		case "LibraEuro":
+			covertirLibraEuro();
+			break;
 		default:
-
-			valorMonedaConvertida = 0.0;
-
+			valorMonedaConvertida  =  this.valorMoneda;
+			break;
 		}
-		return valorMonedaConvertida;
-
+	}
+	/**
+	 * @return the monedaString
+	 */
+	public String getMonedaString() {
+		try {
+			
+			
+			this.monedaString = String.valueOf(formatoDecimal.format(valorMoneda));
+		} catch (Exception e) {
+			
+		}
+		return monedaString;
+	}
+	/**
+	 * @param monedaString the monedaString to set
+	 */
+	public void setMonedaString(String monedaString) {
+		try {
+			
+			this.valorMoneda = Double.parseDouble(monedaString);
+			
+		} catch (Exception e) {
+			
+		}
+		
+		this.monedaString = monedaString;
+	}
+	/**
+	 * @return the corvertidaString
+	 */
+	public String getCorvertidaString() {
+		try {
+			
+			this.corvertidaString = String.valueOf(formatoDecimal.format(valorMonedaConvertida));
+			
+		} catch (Exception e) {
+			
+		}
+		return corvertidaString;
+	}
+	/**
+	 * @param corvertidaString the corvertidaString to set
+	 */
+	public void setCorvertidaString(String corvertidaString) {
+		try {
+			
+			this.valorMonedaConvertida = Double.parseDouble(corvertidaString);
+			
+		} catch (Exception e) {
+			
+		}
+		this.corvertidaString = corvertidaString;
 	}
 	
-	/*public String getStringMoneda() {
-		
-	this.valorMonedaString = df.format(this.valorMoneda);
 	
-	return valorMonedaString;
-		
-	}
-
-	public void eliminarDigitoMoneda() {
-
-		StringBuilder monedaString = new StringBuilder(this.getStringMoneda());
-		monedaString.deleteCharAt(monedaString.length() - 1);
-		this.valorMoneda = Double.parseDouble(monedaString.toString());
-
-	}*/
-
-	public double eliminarMoneda() {
-		this.valorMoneda = 0;
-		
-		return this.valorMoneda;
-	}
-
+	
 }

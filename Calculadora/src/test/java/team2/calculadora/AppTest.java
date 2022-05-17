@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import team2.Calculadora.modelo.Calculadora;
+import team2.calculadora.modelo.Calculadora;
 
 class AppTest {
 	@BeforeEach
